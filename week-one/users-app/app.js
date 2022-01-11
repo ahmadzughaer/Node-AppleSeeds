@@ -24,7 +24,7 @@ yargs.command({
       type: "string"
     }
   },
-  handler: argv => {
+  handler: (argv) => {
     users.addUser(argv.id, argv.name, argv.email);
   }
 });
@@ -40,7 +40,7 @@ yargs.command({
         type: "string"
       }
   },
-  handler: argv => {
+  handler: (argv)  => {
     users.removeUser(argv.id);
   }
 });
@@ -65,7 +65,7 @@ yargs.command({
         type: "string"
       }
   },
-  handler: argv => {
+  handler: (argv)  => {
     users.readUser(argv.id);
   }
 });

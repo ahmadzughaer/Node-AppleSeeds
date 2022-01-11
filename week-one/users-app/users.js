@@ -1,6 +1,4 @@
 import fs from 'fs'
-// import {createRequire} from "module";
-// const require = createRequire(import.meta.url);
 import chalk from "chalk";
 import uniqid from 'uniqid';
 
@@ -9,7 +7,7 @@ let userId = uniqid()
 
 const addUser = (id, name, email) => {
     const users = loadUsers();
-    const duplicateUser = users.find(user => user.name === name);
+    const duplicateUser = users.find((user) => user.name === name);
     if (!duplicateUser) {
         users.push({
             userId,
@@ -24,9 +22,9 @@ const addUser = (id, name, email) => {
 };
 
 
-const readUser = id => {
+const readUser = (id) => {
     const users = loadUsers();
-    const findUser = users.find(user => user.userId === id);
+    const findUser = users.find((user) => user.userId === id);
     if (findUser) {
         console.log(`${chalk.inverse(findUser.userId)}    ${findUser.name}   ${findUser.email}`);
     } else {
@@ -35,10 +33,10 @@ const readUser = id => {
 };
 
 
-const removeUser = id => {
+const removeUser = (id) => {
     const users = loadUsers();
 
-    const filteredUsers = users.filter(user => user.userId !== id);
+    const filteredUsers = users.filter((user) => user.userId !== id);
 
     if (users.length > filteredUsers.length) {
         console.log(chalk.inverse.green("Removed user"));
@@ -49,7 +47,7 @@ const removeUser = id => {
 };
 
 
-const saveUser = users => {
+const saveUser = (users) => {
     const dataJSON = JSON.stringify(users);
     fs.writeFileSync("users.json", dataJSON);
 };
@@ -83,4 +81,3 @@ export default {
     readUser
 };
 
-console.log(userId)

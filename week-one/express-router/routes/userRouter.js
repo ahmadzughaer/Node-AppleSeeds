@@ -3,8 +3,8 @@ const { deleteRoute, getRoute, postRoute, putRoute } = require("../controllers/u
 const userRouter = express.Router();
 
 userRouter.get("/", getRoute);
-userRouter.get("/", postRoute);
-userRouter.get("/", putRoute);
-userRouter.get("/", deleteRoute);
+userRouter.post("/", postRoute);
+userRouter.put("/", putRoute);
+userRouter.delete("/", deleteRoute);
 
 module.exports = userRouter;

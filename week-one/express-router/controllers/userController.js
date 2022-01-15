@@ -3,19 +3,13 @@ let numbers =  [1,2,3,4,5,6]
 
 const getRoute = async (req, res) => {
 
+		res.send(numbers);
 
-
-	try {
-
-		res.send('<title>my title</title>');
-	} catch (err) {
-		console.log(err);
-	}
 };
 
 const postRoute = (req, res) => {
     const { newNumber } = req.body;
-    numbers.push(newNumber);
+    numbers.push(parseInt(newNumber));
 
     res.send(numbers);
 
